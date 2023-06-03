@@ -1,3 +1,4 @@
+rootProject.name="gatlingGrpcKotlinDemo"
 pluginManagement {
     val kotlinVersion: String by settings
     plugins {

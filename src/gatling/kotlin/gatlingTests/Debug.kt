@@ -7,7 +7,7 @@ import io.gatling.javaapi.core.Simulation
 class Debug : Simulation() {
     init {
         setUp(
-            SampleScenario.sendUnary.injectOpen(
+            SampleScenario.bidirectionalStream.injectOpen(
                 atOnceUsers(1)
             )
         )

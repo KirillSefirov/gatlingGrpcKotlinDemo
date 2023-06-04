@@ -4,7 +4,7 @@ import gatlingTests.scenarios.Scenarios
 import io.gatling.javaapi.core.CoreDsl.*
 import io.gatling.javaapi.core.Simulation
 
-class Debug : Simulation() {
+class Simulation : Simulation() {
     init {
         setUp(
             Scenarios.bidirectionalStream.injectOpen(

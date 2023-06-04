@@ -5,7 +5,7 @@ import io.gatling.core.config.GatlingPropertiesBuilder
 
 fun main() {
     val props = GatlingPropertiesBuilder()
-        .simulationClass(Debug::class.qualifiedName)
+        .simulationClass(Simulation::class.qualifiedName)
 
     Gatling.fromMap(props.build())
 }

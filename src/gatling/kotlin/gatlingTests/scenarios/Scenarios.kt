@@ -1,36 +1,34 @@
 package gatlingTests.scenarios
 
-import gatlingTests.requests.SampleRequests
+import gatlingTests.requests.Requests
 import io.gatling.javaapi.core.CoreDsl.*
 
-object SampleScenario {
+object Scenarios {
 
     val sendUnary = scenario("Unary")
-        .exec(SampleRequests.unaryRequest())
+        .exec(Requests.unaryRequest())
 
     val serverStream = scenario("Server Stream")
-        .exec(SampleRequests.serverStreamRequest).during(10).on(pause(1))
+        .exec(Requests.serverStreamRequest).during(10).on(pause(1))
 
     val clientStream =  scenario("Client Stream")
-        .exec(SampleRequests.clientStreamConnect)
+        .exec(Requests.clientStreamConnect)
         .repeat(3).on(
             pause(3)
-                .exec(SampleRequests.clientStreamSend))
-        .exec(SampleRequests.clientStreamEnd)
+                .exec(Requests.clientStreamSend))
+        .exec(Requests.clientStreamEnd)
         .exec{session ->
             println(session.getString("ClientStreamResponse"))
             session
         }
 
     val bidirectionalStream = scenario("Bidirectional Stream")
-        .exec(SampleRequests.bidirectionalStreamConnect)
+        .exec(Requests.bidirectionalStreamConnect)
         .repeat(5).on(
             pause(3)
-                .exec(SampleRequests.bidirectionalStreamSend)
+                .exec(Requests.bidirectionalStreamSend)
                 .pause(1)
         )
-        .exec(SampleRequests.bidirectionalStreamEnd)
-
-
+        .exec(Requests.bidirectionalStreamEnd)
 }
 

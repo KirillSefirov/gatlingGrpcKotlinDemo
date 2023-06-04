@@ -1,13 +1,13 @@
 package gatlingTests
 
-import gatlingTests.scenarios.SampleScenario
+import gatlingTests.scenarios.Scenarios
 import io.gatling.javaapi.core.CoreDsl.*
 import io.gatling.javaapi.core.Simulation
 
 class Debug : Simulation() {
     init {
         setUp(
-            SampleScenario.bidirectionalStream.injectOpen(
+            Scenarios.bidirectionalStream.injectOpen(
                 atOnceUsers(1)
             )
         )
